@@ -1,10 +1,18 @@
 trigger:
 - '*'
 
-pool:
-  vmImage: 'ubuntu-18.04'
-  demands:
-  - npm
+variables:
+  buildConfiguration: 'Release'
+
+stages:
+- stage: 'Build'
+  displayName: 'Build the web application'
+  jobs: 
+  - job: 'Build'
+  pool:
+    vmImage: 'windows-latest'
+    demands:
+      - npm
 
 variables:
   buildConfiguration: 'Release'
